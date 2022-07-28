@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Explorer</title>
+
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <!-- HTML code for displaying the navigation bar on the top -->
+    <nav class="navbar navbar-dark bg-primary mb-3">
+        <div class="container">
+            <a href="#" class="navbar-brand">Book Explorer</a>
+        </div>
+    </nav>
+
+    <!-- HTML code for displaying the search container -->
+    <div class="container mainContainer">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                    aria-selected="true">Home</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="searchPanel-tab" data-toggle="tab" href="#searchPanel" role="tab"
+                    aria-controls="searchPanel" aria-selected="true">Book search</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="storeSearchPanel-tab" data-toggle="tab" href="#storeSearchPanel" role="tab"
+                    aria-controls="storeSearchPanel" aria-selected="true">Bookstore search</a>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <br>
+                <div class="row">
+                    <h5>Best books of the month</h5>
+                    <div class="col-md-2">
+                        <div class="thumbnail">
+                            <img src="./imgs/71wVDijAo3L._AC_UL320_.jpg" alt="lessonsinchemistry"
+                                title="lessonsinchemistry">
+                            <div class="caption">LESSONS in CHEMISTRY</div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="thumbnail">
+                            <img src="./imgs/81HA6TJ5K-L._AC_UL320_.jpg" alt="wherethecrawdadssing"
+                                title="wherethecrawdadssing">
+                            <div class="caption">Where the Crawdads Sing</div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="thumbnail">
+                            <img src="./imgs/81ZylhG5VnL._AC_UL320_.jpg" alt="thehotelnantucket"
+                                title="thehotelnantucket">
+                            <div class="caption">The Hotel Nantucket</div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="thumbnail">
+                            <img src="./imgs/91P67FPmyvL._AC_UL320_.jpg" alt="milkman:anovel" title="milkman:anovel">
+                            <div class="caption ">Milkman: A Novel</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="thumbnail">
+                            <img src="./imgs/915VeOOlvcL._AC_UL320_.jpg" alt="thegirlwiththeloudingvoice:anovel"
+                                title="thegirlwiththeloudingvoice:anovel">
+                            <div class="caption">The Girl with the Louding Voice: A Novel</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="thumbnail">
+                            <img src="./imgs/71VTIUNTI0L._AC_UL320_.jpg" alt="themaid:anovel" title="themaid:anovel">
+                            <div class="caption">The Maid: A Novel</div>
+                        </div>
+                    </div>
+                    <a href="https://www.amazon.com/b?ie=UTF8&node=17276797011">see more</a>
+                </div>
+            </div>
+            <div class="tab-pane fade " id="searchPanel" role="tabpanel" aria-labelledby="searchPanel-tab">
+                <br>
+                <div class="card border-primary mb-3">
+                    <div class="card-header">Search and Learn more about the book</div>
+                    <div class="card-body">
+                        <p class="lead">Enter Book Name:</p>
+                        <input type="text" id="name" class="form-control" placeholder="no space"
+                            required>
+                        <p class="lead">Enter Book Name:</p>
+                        <input type="text" id="nameAuthor" class="form-control" placeholder="Ex. anna burns / anna / burns"
+                            required>
+                        <br>
+                        <button type="submit" class="btn btn-primary" id="searchBook">Search</button>
+                    </div>
+                </div>
+            </div>
+            
+
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Author</th>
+        <th scope="col">Public Date</th>
+        <th scope="col">Category</th>
+        <th scope="col">Preview</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-active">
+        <th scope="row">Active</th>
+        <td>Column content</td>
+        <td>Column content</td>
+        <td>Column content</td>
+        
+        <td>Column content</td>
+        
+        <td>Column content</td>
+      </tr>
+      <tr>
+        <th scope="row">Default</th>
+        <td>Column content</td>
+        <td>Column content</td>
+        <td>Column content</td>
+      </tr>
+      <tr class="table-primary">
+        <th scope="row">Primary</th>
+        <td>Column content</td>
+        <td>Column content</td>
+        <td>Column content</td>
+      </tr>
+      <tr class="table-secondary">
+        <th scope="row">Secondary</th>
+        <td>Column content</td>
+        <td>Column content</td>
+        <td>Column content</td>
+      </tr>
+     
+    </tbody>
+  </table>
+  
+  
+
+        </div>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+            $('#searchPanel-tab').click(function () {
+                $('#home').attr('class', 'tab-pane fade');
+                $('#searchPanel').attr('class', 'tab-pane fade show active');
+            });
+            $('#home-tab').click(function () {
+                $('#searchPanel').attr('class', 'tab-pane fade');
+            });
+
+            $('#searchBook').click(async function getResult() {
+                var bookName = $('#name').val();
+                var bookAuthor = $('#nameAuthor').val();
+                const api = `AIzaSyBkEeTpPx1lmLLPuVqZiQm9VRSfk7RnDT4`;
+                const url = `https://www.googleapis.com/books/v1/volumes?q=${bookName}+inauthor:${bookAuthor}&key=${api}`;
+
+                const response = await fetch(url, {
+                    method: 'GET',
+                    cache: 'no-cache'
+                });
+                console.log(url);
+                const respnseData = await response.json();
+                $('#searchPanel').attr('class', 'tab-pane fade');
+            });
+        </script>
+
+</body>
+
+</html>
