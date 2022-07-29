@@ -91,63 +91,38 @@
                     <div class="card-header">Search and Learn more about the book</div>
                     <div class="card-body">
                         <p class="lead">Enter Book Name:</p>
-                        <input type="text" id="name" class="form-control" placeholder="no space"
-                            required>
-                        <p class="lead">Enter Book Name:</p>
-                        <input type="text" id="nameAuthor" class="form-control" placeholder="Ex. anna burns / anna / burns"
-                            required>
+                        <input type="text" id="name" class="form-control" placeholder="no space" required>
                         <br>
                         <button type="submit" class="btn btn-primary" id="searchBook">Search</button>
                     </div>
                 </div>
             </div>
-            
 
-<table class="table table-hover">
-    <thead>
-      <tr>
-        <th scope="col">Title</th>
-        <th scope="col">Author</th>
-        <th scope="col">Public Date</th>
-        <th scope="col">Category</th>
-        <th scope="col">Preview</th>
-        <th scope="col">Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="table-active">
-        <th scope="row">Active</th>
-        <td>Column content</td>
-        <td>Column content</td>
-        <td>Column content</td>
-        
-        <td>Column content</td>
-        
-        <td>Column content</td>
-      </tr>
-      <tr>
-        <th scope="row">Default</th>
-        <td>Column content</td>
-        <td>Column content</td>
-        <td>Column content</td>
-      </tr>
-      <tr class="table-primary">
-        <th scope="row">Primary</th>
-        <td>Column content</td>
-        <td>Column content</td>
-        <td>Column content</td>
-      </tr>
-      <tr class="table-secondary">
-        <th scope="row">Secondary</th>
-        <td>Column content</td>
-        <td>Column content</td>
-        <td>Column content</td>
-      </tr>
-     
-    </tbody>
-  </table>
-  
-  
+
+            <table class="table table-hover fade" id="info">
+                <thead>
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Author</th>
+                        <th scope="col">Public Date</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Preview</th>
+                        <th scope="col">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-primary">
+                        <th scope="row" id="bookTit"></th>
+                        <td id="bookAut"></td>
+                        <td id="bookDate"></td>
+                        <td id="bookCate"></td>
+                        <td id="bookPrev"></td>
+                        <td id="bookDes"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+
 
         </div>
 
@@ -168,15 +143,22 @@
                 var bookName = $('#name').val();
                 var bookAuthor = $('#nameAuthor').val();
                 const api = `AIzaSyBkEeTpPx1lmLLPuVqZiQm9VRSfk7RnDT4`;
-                const url = `https://www.googleapis.com/books/v1/volumes?q=${bookName}+inauthor:${bookAuthor}&key=${api}`;
+                const url = `https://www.googleapis.com/books/v1/volumes?q=${bookName}&key=${api}`;
 
                 const response = await fetch(url, {
                     method: 'GET',
                     cache: 'no-cache'
                 });
-                console.log(url);
+
                 const respnseData = await response.json();
-                $('#searchPanel').attr('class', 'tab-pane fade');
+                $('#info').attr('class', 'table table-hover fade show active')
+                $('#bookTit').html(respnseData.items[0].volumeInfo.title);
+                $('#bookAut').html(respnseData.items[0].volumeInfo.authors[0]);
+                $('#bookDate').html(respnseData.items[0].volumeInfo.publishedDate);
+                $('#bookCate').html(respnseData.items[0].volumeInfo.categories[0]);
+                $('#bookPrev').html('<img src="' + respnseData.items[0].volumeInfo.imageLinks.smallThumbnail + '">');
+                $('#bookDes').html(respnseData.items[0].volumeInfo.description);
+
             });
         </script>
 
