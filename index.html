@@ -30,8 +30,8 @@
                     aria-controls="searchPanel" aria-selected="true">Book search</a>
             </li>
             <li class="nav-item" role="presentation">
-                <a class="nav-link" id="storeSearchPanel-tab" data-toggle="tab" href="#storeSearchPanel" role="tab"
-                    aria-controls="storeSearchPanel" aria-selected="true">Bookstore search</a>
+                <a class="nav-link" id="factPanel-tab" data-toggle="tab" href="#factPanel" role="tab"
+                    aria-controls="factPanel" aria-selected="true">Learning facts</a>
             </li>
         </ul>
 
@@ -97,8 +97,6 @@
                     </div>
                 </div>
             </div>
-
-
             <table class="table table-hover fade" id="info">
                 <thead>
                     <tr>
@@ -121,9 +119,13 @@
                     </tr>
                 </tbody>
             </table>
-
-
-
+            <br>
+            <div id="factContainer" class="card text-white bg-primary mb-3 fade" style="max-width: 20rem;">
+                <div class="card-header">Facts</div>
+                <div class="card-body">
+                    <h4 id="catFact" class="card-title"></h4>
+                </div>
+            </div>
         </div>
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -134,9 +136,11 @@
             $('#searchPanel-tab').click(function () {
                 $('#home').attr('class', 'tab-pane fade');
                 $('#searchPanel').attr('class', 'tab-pane fade show active');
+                $('#factContainer').attr('class', 'card text-white bg-primary mb-3 fade');
             });
             $('#home-tab').click(function () {
                 $('#searchPanel').attr('class', 'tab-pane fade');
+                $('#factContainer').attr('class', 'card text-white bg-primary mb-3 fade');
             });
 
             $('#searchBook').click(async function getResult() {
@@ -160,8 +164,19 @@
                 $('#bookDes').html(respnseData.items[0].volumeInfo.description);
 
             });
+            $('#factPanel-tab').click(async function () {
+                $('#home').attr('class', 'tab-pane fade');
+                $('#searchPanel').attr('class', 'tab-pane fade');
+                $('#info').attr('class', 'tab-pane fade');
+                $('#factContainer').attr('class', 'card text-white bg-primary mb-3 fade show active');
+                const url = `https://meowfacts.herokuapp.com/`
+                const response = await fetch(url, {
+                    method: 'GET'
+                });
+                const respnseData = await response.json();
+                $('#catFact').html(respnseData.data[0]);
+            });
         </script>
-
 </body>
 
 </html>
